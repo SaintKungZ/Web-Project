@@ -1,0 +1,362 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins' ,sans-serif;
+}
+
+body {
+    background: #F9F5EB;
+}
+nav {
+    display: flex;
+    width: 100%;
+    background: #1C3879;
+    position: relative;
+    justify-content: space-between;
+    text-align: center;
+    padding: 15px 30px;
+}
+
+nav .icon a {
+    font-size: 35px;
+    font-weight: 800;
+    color: #fff;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+nav ol {
+    display: flex;
+    list-style: none;
+    margin: auto 0;
+}
+
+nav ol li {
+    margin: 0 2px;
+}
+
+nav ol li a {
+    color: #fff;
+    font-size: 20px;
+    text-transform: capitalize;
+    letter-spacing: 1px;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+}
+
+nav ol li:hover a {
+    background: #fff;
+    color: #0a5071;
+}
+
+nav .search-box {
+    display: flex;
+    margin: auto 0;
+    height: 35px;
+    line-height: 35px;
+}
+
+nav .search-box input {
+    border-style: solid;
+    border-width: 0.2rem;
+    border-color: #607EAA;
+    color: #fff;
+    /*border: none;*/
+    outline: none;
+    background: #fff;
+    height: 100%;
+    padding: 0 10px;
+    font-size: 20px;
+    width: 350px;
+}
+
+nav .search-box span {
+    color: #1C3879; /*แว่นขยาย*/
+    font-size: 20px;
+    background: #607EAA;
+    height: 100%;
+    padding: 8px;
+    position: relative;
+    cursor: pointer;
+    z-index: 1;
+}
+
+nav .search-box span:hover {
+    color: #fff;
+}
+
+nav .search-box span::after {
+    height: 100%;
+    width: 0%;
+    content: '';
+    background: #ff003c;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    transition: 0.3s;
+}
+
+nav .search-box span:hover::after {
+    width: 100%;
+}
+
+nav .bar {
+    position: relative;
+    margin: auto;
+    display: none;
+}
+
+nav .bar span {
+    position: absolute;
+    color: #fff;
+    font-size: 35px;
+}
+
+input[type="checkbox"] {
+    /*-webkit-appearance: none;*/
+    display: none;
+}
+
+/*หน้าจอเล็ก*/
+@media screen and (max-width: 1250px) {
+    nav {
+        display: block;
+        padding: 0;
+    }
+    nav .icon {
+        display: inline-block;
+        padding: 15px 30px;
+    }
+    nav .search-box {
+        width: 100%;
+        display: inline-flex;
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    nav .search-box input {
+        width: 90%;
+    }
+    nav ol {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        height: 0;
+        visibility: hidden;
+        transition: 0.5s;
+    }
+    nav ol li {
+        text-align: center;
+        /*ส่วนที่ทำให้เมนูเล็กเลื่อนได้*/
+        transition: 0.9s 0.1s all;
+        opacity: 0;
+    }
+    nav ol li a {
+        color: #1C3879;
+        font-size: 28px;
+        padding: 25px;
+        display: block;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+    }
+    nav ol li:hover a {
+        background: #1C3879;
+        color: #fff;
+    }
+
+
+    /*ส่วนที่ทำให้เมนูเล็กเลื่อนได้*/
+    nav ol li:nth-child(1) {
+        transform: translateX(-150px);
+    }
+    nav ol li:nth-child(2) {
+        transform: translateX(-200px);
+    }
+    nav ol li:nth-child(3) {
+        transform: translateX(-250px);
+    }
+    nav ol li:nth-child(4) {
+        transform: translateX(-300px);
+    }
+    nav ol li:nth-child(5) {
+        transform: translateX(-350px);
+    }
+    nav .bar {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 80px;
+        cursor: pointer;
+    }
+    nav .bar #times {
+        display: none;
+    }
+    #check:checked ~ nav .bar #times {
+        display: block;
+    }
+    #check:checked ~ nav .bar #bars {
+        display: none;
+    }
+    #check:checked ~ nav ol {
+        visibility: visible;
+        height: 465px;
+    }
+
+    /*ส่วนที่ทำให้เมนูเล็กเลื่อนได้*/
+    #check:checked ~ nav ol li:nth-child(1),
+    #check:checked ~ nav ol li:nth-child(2),
+    #check:checked ~ nav ol li:nth-child(3),
+    #check:checked ~ nav ol li:nth-child(4),
+    #check:checked ~ nav ol li:nth-child(5) {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    /*-------------------------------------------------*/
+    .about-container {
+        flex-direction: column;
+    }
+    .image-container img {
+        width: 100px;
+        height: 100px;
+    }
+    .text-container {
+        text-align: center;
+    }
+
+}
+
+
+/*-------------------------------------------------------------------------------------------*/
+
+header {
+    margin-top: 40px;
+    margin-bottom: 40px;
+}
+
+/*.item {
+    height: 76vh;
+    min-height: 50px;
+}*/
+
+/*--------------------------------------------------------------------------------------------*/
+
+section {
+    position: relative;
+}
+
+.wrapper {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.background-color {
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+}
+
+.bg-1 {
+    flex: 1;
+    background-color: rgb(180, 243, 175);
+}
+
+.bg-2 {
+    flex: 1;
+    background-color: rgb(163, 236, 240);
+}
+
+.about-container {
+    width: 85%;
+    min-height: 80vh;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 24px 24px 30px #6d8dad;
+}
+
+.image-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image-container img {
+    width: 500px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.text-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    flex-direction: column;
+}
+
+.text-container h1 {
+    font-size: 50px;
+    padding: 10px 0px;
+}
+
+.text-container p {
+    font-size: 25px;
+    padding: 10px 0px;
+}
+
+.text-container a {
+    text-decoration: none;
+    padding: 12px;
+    border: 2px solid rebeccapurple;
+    margin-top: 30px;
+    background-color: rebeccapurple;
+    color: white;
+    font-size: 20px;
+    border-radius: 5px;
+    transition: .3s all ease-in-out;
+}
+
+.text-container a:hover {
+    background-color: transparent;
+    color: black;
+    border: 2px solid rebeccapurple;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
